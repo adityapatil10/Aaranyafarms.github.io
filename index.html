@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AARANYA Farm</title>
+  <title>AARANYA Organic Farm</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -13,33 +13,60 @@
       font-family: 'Poppins', sans-serif;
       background: #fefae0;
     }
+
+    .floating-logo-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+      transition: all 0.6s ease-in-out;
+      text-align: center;
+    }
+
+    .floating-logo-container.scrolled {
+      top: 20px;
+      left: 20px;
+      transform: translate(0, 0);
+      width: 80px;
+    }
+
+    .floating-logo {
+      width: 1200px;
+      height: auto;
+      transition: all 0.6s ease-in-out;
+    }
+
+    .floating-logo-container.scrolled .floating-logo {
+      width: 160px;
+    }
+
     .hero {
       background: url('background.jpg') no-repeat center center/cover;
-      color: rgb(246, 209, 87);
+      color: white;
       height: 90vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      text-shadow:
-    -1px -1px 0 black,
-     1px -1px 0 black,
-    -1px  1px 0 black,
-     1px  1px 0 black;
     }
+
     .hero h1 {
-      color: rgb(226, 42, 28);
       font-size: 3rem;
       font-weight: 700;
+      text-shadow: 2px 2px 5px #000;
     }
+
     .section-title {
       font-weight: 600;
       margin-top: 2rem;
     }
+
     .card img {
       height: 200px;
       object-fit: cover;
     }
+
     .whatsapp-btn {
       position: fixed;
       bottom: 20px;
@@ -53,6 +80,24 @@
       z-index: 1000;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
+    .email-btn {
+      position: fixed;
+      bottom: 80px; /* stacked above WhatsApp */
+      right: 20px;
+      background-color: #007BFF; /* Blue for email */
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 20px;
+      font-size: 18px;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      text-decoration: none;
+    }
+    .email-btn:hover {
+      background-color: #0056b3;
+    }
+
     .team-photo {
       width: 100%;
       height: 200px;
@@ -63,21 +108,27 @@
 </head>
 <body>
 
+  <!-- Floating Logo -->
+  <div class="floating-logo-container">
+    <img src="logo.jpeg" alt="AARANYA Organic Logo" class="floating-logo" id="farmLogo" />
+  </div>
+
   <!-- Hero Section -->
   <div class="hero">
     <div data-aos="fade-up">
-      <h1>AARANYA Farms</h1>
+      <h1>आरण्य ऑरगॅनिक फार्म</h1>
       <p class="lead">Farm-Fresh Desi Chicken, Goat & Eggs – Naturally Raised</p>
     </div>
   </div>
 
-  <!-- About Us Section -->
-  <div class="container my-5">
+  <!-- About Us -->
+  <div class="container my-5" id="about">
     <h2 class="section-title text-center" data-aos="fade-up">About Us</h2>
-    <div class="row mt-4" data-aos="fade-right">
-      <div class="col-md-6">
-        <p>Welcome to AARANYA Farm – a natural and sustainable farm based in the lush countryside of <strong>Thane, Maharashtra</strong>. We are dedicated to raising healthy, hormone-free livestock including desi chickens, goats, and free-range eggs.</p>
-        <p>Our mission is to provide pure, desi, and chemical-free meat and eggs straight to your table.</p>
+    <div class="row mt-4 align-items-center">
+      <div class="col-md-6" data-aos="fade-right">
+        <p>Welcome to AARANYA organic Farm – a natural and sustainable farm based in the lush countryside of Thane, Maharashtra. We are dedicated to raising healthy, hormone-free livestock including desi chickens, goats, and free-range eggs.
+
+          Our mission is to provide pure, desi, and chemical-free meat and eggs straight to your table.</p>
       </div>
       <div class="col-md-6">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.11609999816!2d72.74109838539108!3d19.08252231729012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63d23e5fb8f%3A0x3aa5a5dc7b2a59cf!2sThane%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1691402236507!5m2!1sen!2sin" 
@@ -86,7 +137,7 @@
     </div>
   </div>
 
-  <!-- Our Products -->
+  <!-- Products -->
   <div class="container my-5">
     <h2 class="section-title text-center" data-aos="fade-up">Our Products</h2>
     <div class="row mt-4">
@@ -104,7 +155,7 @@
           <img src="goat.jpg" class="card-img-top" alt="Desi Goat">
           <div class="card-body">
             <h5 class="card-title">Goat Meat</h5>
-            <p class="card-text">Free-range raised goat – ₹850/kg</p>
+            <p class="card-text">Free-range raised goat – ₹700/kg</p>
           </div>
         </div>
       </div>
@@ -120,37 +171,58 @@
     </div>
   </div>
 
-  <!-- Our Team Section -->
+  <!-- Our Team
   <div class="container my-5">
     <h2 class="section-title text-center" data-aos="fade-up">Our Team</h2>
     <div class="row mt-4">
       <div class="col-md-4 text-center" data-aos="fade-up">
-        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team Member 1" class="team-photo mb-2">
-        <h5>Gaurav Vasaikar</h5>
-        <p>Farm Operations Lead</p>
+        <img src="https://randomuser.me/api/portraits/men/31.jpg" class="team-photo mb-2" alt="Team Member 1">
+        <h5>Ramesh Pawar</h5>
+        <p>Farm Manager</p>
       </div>
       <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="100">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team Member 2" class="team-photo mb-2">
-        <h5>abc</h5>
-        <p>Quality & Hygiene</p>
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="team-photo mb-2" alt="Team Member 2">
+        <h5>Sneha Patil</h5>
+        <p>Quality Control</p>
       </div>
       <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="200">
-        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Team Member 3" class="team-photo mb-2">
-        <h5>Omkar Pawar</h5>
-        <p>Logistics Manager</p>
+        <img src="https://randomuser.me/api/portraits/men/64.jpg" class="team-photo mb-2" alt="Team Member 3">
+        <h5>Vikas More</h5>
+        <p>Delivery & Logistics</p>
       </div>
     </div>
-  </div>
+  </div> -->
+<!-- Email Me Button -->
+<a href="mailto:aaranya.org.farms@gmail.com?subject=Order%20Inquiry&body=Hi,%20I%20am%20interested%20in%20your%20farm%20products." 
+   class="email-btn" target="_blank">
+  <i class="fas fa-envelope"></i> Email Me
+</a>
 
   <!-- WhatsApp Button -->
-  <a href="https://wa.me/911234567890?text=Hi,+I+want+to+order+from+Thane+Desi+Farm" class="whatsapp-btn" target="_blank">
+  <a href="https://wa.me/919527724779?text=Hi,+I+want+to+order+from+AARANYA+Organic+Farm" class="whatsapp-btn" target="_blank">
     <i class="fab fa-whatsapp"></i> Order Now
   </a>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
+
+    const logoContainer = document.querySelector('.floating-logo-container');
+    const aboutSection = document.querySelector('#about');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const triggerPoint = aboutSection.offsetTop - 1100;
+
+      if (scrollY > triggerPoint) {
+        logoContainer.classList.add('scrolled');
+      } else {
+        logoContainer.classList.remove('scrolled');
+      }
+    });
   </script>
+
 </body>
 </html>
