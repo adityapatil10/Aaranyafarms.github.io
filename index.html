@@ -43,11 +43,14 @@
     .floating-logo-container.scrolled .floating-logo {
       width: 160px;
     }
-
+.hero img {
+  max-width: 90%; /* avoid overflow */
+  height: auto;   /* keep proportions */
+}
     .hero {
       background: url('logo.jpeg') no-repeat center center/cover;
       color: white;
-      height: 90vh;
+      min-height: 90vh;
       display: flex;
       align-items: center;
       justify-content: center;
