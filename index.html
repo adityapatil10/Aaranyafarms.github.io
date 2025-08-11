@@ -47,15 +47,26 @@
   max-width: 90%; /* avoid overflow */
   height: auto;   /* keep proportions */
 }
-    .hero {
-      background: url('logo.jpeg') no-repeat center center/cover;
-      color: white;
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
+   .hero {
+  background: url('logo.jpg') no-repeat center center;
+  background-size: cover; /* default for desktop */
+  color: white;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .hero {
+    background-size: contain; /* show full logo */
+    background-color: #000; /* optional: background behind logo */
+    min-height: 70vh; /* reduce height for small screens */
+    padding: 20px; /* breathing space */
+  }
+}
 
     .hero h1 {
       font-size: 3rem;
