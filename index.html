@@ -82,37 +82,64 @@
       height: 200px;
       object-fit: cover;
     }
+.contact-section {
+  background: #f9f9f9;
+  padding: 40px 20px;
+  text-align: center;
+}
 
-    .whatsapp-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25D366;
-      color: white;
-      border: none;
-      border-radius: 50px;
-      padding: 12px 20px;
-      font-size: 18px;
-      z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-    .email-btn {
-      position: fixed;
-      bottom: 80px; /* stacked above WhatsApp */
-      right: 20px;
-      background-color: #007BFF; /* Blue for email */
-      color: white;
-      border: none;
-      border-radius: 50px;
-      padding: 12px 20px;
-      font-size: 18px;
-      z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      text-decoration: none;
-    }
-    .email-btn:hover {
-      background-color: #0056b3;
-    }
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.whatsapp-btn {
+  background-color: #25d366;
+  color: white;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebe5a;
+}
+
+.email-btn {
+  background-color: #0073e6;
+  color: white;
+}
+
+.email-btn:hover {
+  background-color: #005bb5;
+}
+
+/* Mobile button size adjustments */
+@media (max-width: 768px) {
+  .btn {
+    flex: 1 1 100%;
+    justify-content: center;
+    font-size: 1.1rem;
+    padding: 15px;
+  }
+}
 
     .team-photo {
       width: 100%;
@@ -187,7 +214,19 @@
       </div>
     </div>
   </div>
-
+<!-- Order & Contact Section -->
+<section class="contact-section">
+  <h2>Get in Touch</h2>
+  <div class="contact-buttons">
+    <a href="https://wa.me/911234542?text=Hi,+I+want+to+order+from+AARANYA+Organic+Farm" 
+       class="btn whatsapp-btn" target="_blank">
+      <i class="fab fa-whatsapp"></i> Order Now
+    </a>
+    <a href="mailto:your-email@example.com" class="btn email-btn">
+      <i class="fas fa-envelope"></i> Email Me
+    </a>
+  </div>
+</section>
   <!-- Our Team
   <div class="container my-5">
     <h2 class="section-title text-center" data-aos="fade-up">Our Team</h2>
@@ -209,16 +248,8 @@
       </div>
     </div>
   </div> -->
-<!-- Email Me Button -->
-<a href="mailto:aaranya.org.farms@gmail.com?subject=Order%20Inquiry&body=Hi,%20I%20am%20interested%20in%20your%20farm%20products." 
-   class="email-btn" target="_blank">
-  <i class="fas fa-envelope"></i> Email Me
-</a>
 
-  <!-- WhatsApp Button -->
-  <a href="https://wa.me/919527724779?text=Hi,+I+want+to+order+from+AARANYA+Organic+Farm" class="whatsapp-btn" target="_blank">
-    <i class="fab fa-whatsapp"></i> Order Now
-  </a>
+
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
